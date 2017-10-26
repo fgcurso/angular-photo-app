@@ -1,0 +1,14 @@
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="photo" *ngIf="photo">
+        <h3>{{ photo.title }}</h3>
+        <img [src]="photo.url">
+      </div>
+
+      <div class="nophoto" *ngIf="!photo">
+        Foto no encontrada!
+      </div>
+    </div>
+  </div>
+</div>

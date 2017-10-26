@@ -1,0 +1,18 @@
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let photo of photos | slice:0:20" class="card">
+        <a href="" [routerLink]="['/photo', photo.id]">
+          <img [src]="photo.thumbnailUrl">
+        </a>
+        {{ photo.title }}
+      </div>
+
+      <div class="card" *ngIf="!photos.length">
+        <p class="card-text">
+          No hay fotos disponibles =(
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
