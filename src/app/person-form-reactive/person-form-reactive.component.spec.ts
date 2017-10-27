@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FooterComponent } from './footer.component';
+import { PersonFormReactiveComponent } from './person-form-reactive.component';
 
-describe('FooterComponent', () => {
-  let component: FooterComponent;
-  let fixture: ComponentFixture<FooterComponent>;
+describe('PersonFormReactiveComponent', () => {
+  let component: PersonFormReactiveComponent;
+  let fixture: ComponentFixture<PersonFormReactiveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [ PersonFormReactiveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FooterComponent);
+    fixture = TestBed.createComponent(PersonFormReactiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

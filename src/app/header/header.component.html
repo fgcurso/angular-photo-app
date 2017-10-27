@@ -1,15 +1,22 @@
 <header>
-  <div class="navbar navbar-dark bg-dark">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand" routerLink="/">Album</a>
+  <div class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a href="#" class="navbar-brand" routerLink="/">Album</a>
+    
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/photos" routerLinkActive="active">Photos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/person-form" routerLinkActive="active">Person Form (template)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/person-form-reactive" routerLinkActive="active">Person Form (Reactive)</a>
+        </li>
+      </ul>
     </div>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#" routerLink="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/photos">Photos</a>
-      </li>
-    </ul>
   </div>
 </header>

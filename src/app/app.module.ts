@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PhotoComponent } from './photo/photo.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { PhotoService } from './photo.service';
 import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
+import { PersonFormComponent } from './person-form/person-form.component';
+import { PersonFormReactiveComponent } from './person-form-reactive/person-form-reactive.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { HomeComponent } from './home/home.component';
     PhotoListComponent,
     PhotoComponent,
     HeaderComponent,
-    FooterComponent,
-    HomeComponent
+    HomeComponent,
+    PersonFormComponent,
+    PersonFormReactiveComponent
   ],
   imports: [
     BrowserModule,
