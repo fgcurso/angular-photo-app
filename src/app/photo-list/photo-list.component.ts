@@ -12,11 +12,24 @@ export class PhotoListComponent implements OnInit {
 
   photos: Photo[] = [];
 
+  isLoading: Boolean = true;
+
   constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
-    this.photoService.getPhotos().subscribe(photos => {
+    this.getPhotos();
+  }
+
+  private getPhotos() {
+    this.isLoading = true;
+
+    this.photoService.getPhotos()
+    .subscribe(photos => {
       this.photos = photos;
+    }, (error) => {
+      console.error(error);
+    }, () => {
+      this.isLoading = false;
     });
   }
 

@@ -5,14 +5,16 @@
         <a href="" [routerLink]="['/photo', photo.id]">
           <img [src]="photo.thumbnailUrl">
         </a>
-        {{ photo.title }}
+        <p class="card-text">{{ photo.title }}</p>
       </div>
 
-      <div class="card full" *ngIf="!photos.length">
+      <div class="card full" *ngIf="!photos.length && !isLoading">
         <p class="card-text">
           No hay fotos disponibles =(
         </p>
       </div>
+
+      <app-loading *ngIf="isLoading"></app-loading>
     </div>
   </div>
 </div>

@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { PersonFormReactiveComponent } from './person-form-reactive/person-form-reactive.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PersonFormReactiveComponent } from './person-form-reactive/person-form-
     HeaderComponent,
     HomeComponent,
     PersonFormComponent,
-    PersonFormReactiveComponent
+    PersonFormReactiveComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
