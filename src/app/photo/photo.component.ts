@@ -12,6 +12,8 @@ export class PhotoComponent implements OnInit {
 
   photo: Photo;
 
+  isLoading: Boolean = false;
+
   constructor(private photoService: PhotoService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -21,8 +23,15 @@ export class PhotoComponent implements OnInit {
   }
 
   private getPhoto(id: number) {
-    this.photoService.getPhoto(id).subscribe(photo => {
-      this.photo = photo;
-    });
+    this.isLoading = true;
+
+    this.photoService.getPhoto(id)
+      .subscribe(photo => {
+        this.photo = photo;
+      }, (error) => {
+        console.error(error);
+      }, () => {
+        this.isLoading = false;
+      });
   }
 }

@@ -6,9 +6,11 @@
         <img [src]="photo.url">
       </div>
 
-      <div class="nophoto" *ngIf="!photo">
+      <div class="nophoto" *ngIf="!photo && !isLoading">
         Foto no encontrada!
       </div>
+
+      <app-loading *ngIf="isLoading"></app-loading>
     </div>
   </div>
 </div>
