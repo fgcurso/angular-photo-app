@@ -1,3 +1,56 @@
-<p>
-  person-form-reactive works!
-</p>
+<div class="container">
+    <form [formGroup]="form">
+      <div class="form-group row">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" class="form-control" formControlName="nombre">
+        <span class="form-text form-validation" *ngIf="form.get('nombre').errors?.required && form.get('nombre').touched">Este campo es requerido</span>
+      </div>
+  
+      <div class="form-group row">
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" class="form-control" formControlName="apellido">
+        <span class="form-text form-validation" *ngIf="false">Error</span>
+      </div>
+  
+      <div class="form-group row">
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-control" formControlName="email">
+        <span class="form-text form-validation" *ngIf="false">Error</span>
+      </div>
+      
+      <div class="form-group row">
+        <label for="confirmEmail">Confirmar Email</label>
+        <input type="text" id="confirmEmail" class="form-control" formControlName="confirmEmail">
+        <span class="form-text form-validation" *ngIf="false">Error</span>
+      </div>
+      
+      <div class="form-group row">
+        <label for="dob">Fecha de Nacimiento</label>
+        <input id="dob" class="form-control" formControlName="dob" ngbDatepicker #d="ngbDatepicker">
+        <button class="input-group-addon" (click)="d.toggle()" type="button"></button>
+        <span class="form-text form-validation" *ngIf="false">Error</span>
+      </div>
+      
+      <div class="form-group row">
+        <label for="pais">Pais</label>
+        <select id="pais" class="form-control" formControlName="pais">
+          <option value="argentina">Argentina</option>
+          <option value="resto-del-mundo">Resto del Mundo</option>
+        </select>
+        <span class="form-text form-validation" *ngIf="false">Error</span>
+      </div>
+      
+      <div class="form-check">
+          <label for="terminos" class="form-check-label">
+            <input type="checkbox" id="terminos" class="form-check-input" formControlName="acepto">
+          Acepto los terminos y condiciones</label>
+        <span class="form-text form-validation" *ngIf="false">Error</span>
+      </div>
+  
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Guardar</button>
+      <button class="btn btn-danger" type="reset" [disabled]="form.pristine">Cancelar</button>
+    </form>
+
+    <p>{{ form.value | json }}</p>
+    <p>{{ form.valid }}</p>
+  </div>

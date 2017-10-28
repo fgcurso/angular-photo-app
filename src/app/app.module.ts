@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { PersonFormReactiveComponent } from './person-form-reactive/person-form-reactive.component';
 import { LoadingComponent } from './loading/loading.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { LoadingComponent } from './loading/loading.component';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot()
   ],
   providers: [

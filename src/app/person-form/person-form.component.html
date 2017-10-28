@@ -1,3 +1,45 @@
-<p>
-  person-form works!
-</p>
+<div class="container">
+  <form #personForm="ngForm" (ngSubmit)="onSubmit(personForm)" novalidate>
+    <div class="form-group row">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" class="form-control" name="nombre" [(ngModel)]="persona.nombre" required minlength="3" #inputNombre="ngModel">
+      <span class="form-text form-validation error" *ngIf="inputNombre.errors?.required && inputNombre.touched">Este campo es requerido</span>
+      <span class="form-text form-validation error" *ngIf="inputNombre.errors?.minlength && inputNombre.touched">Debes escribir al menos 3 caracteres</span>
+    </div>
+
+    <div class="form-group row">
+      <label for="apellido">Apellido</label>
+      <input type="text" id="apellido" class="form-control" name="apellido" [(ngModel)]="persona.apellido" required minlength="3" #inputApellido="ngModel">
+      <span class="form-text form-validation error" *ngIf="inputApellido.errors?.required && inputApellido.touched">Este campo es requerido</span>
+      <span class="form-text form-validation error" *ngIf="inputApellido.errors?.minlength && inputApellido.touched">Debes escribir al menos 3 caracteres</span>
+    </div>
+
+    <div class="form-group row">
+      <label for="email">Email</label>
+      <input type="text" id="email" class="form-control" name="email" [(ngModel)]="persona.email" required email #inputEmail="ngModel">
+      <span class="form-text form-validation error" *ngIf="inputEmail.errors?.email && inputEmail.touched">Debes escribir un mail valido</span>
+    </div>
+    
+    <div class="form-group row">
+      <label for="pais">Pais</label>
+      <select id="pais" class="form-control" name="pais" [(ngModel)]="persona.pais">
+        <option value="argentina">Argentina</option>
+        <option value="resto-del-mundo">Resto del Mundo</option>
+      </select>
+      <span class="form-text form-validation" *ngIf="false">Error</span>
+    </div>
+    
+    <div class="form-check">
+      <label for="terminos" class="form-check-label">
+        <input type="checkbox" id="terminos" class="form-check-input" name="acepto" [(ngModel)]="persona.acepto" #acepto="ngModel" required>
+      Acepto los terminos y condiciones</label>
+      <span class="form-text form-validation" *ngIf="acepto.errors?.required && acepto.touched">Error</span>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!personForm.valid">Guardar</button>
+    <button class="btn btn-danger" type="reset" [disabled]="personForm.pristine">Reset</button>
+  </form>
+
+  <p>{{ personForm.value | json }}</p>
+  <p>{{ personForm.valid }}</p>
+</div>
