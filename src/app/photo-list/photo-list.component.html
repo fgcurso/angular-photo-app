@@ -1,12 +1,17 @@
 <div class="album text-muted">
   <div class="container">
     <div class="row">
-      <div *ngFor="let photo of photos | slice:0:20" class="card">
+      <div *ngFor="let photo of photos | paginate: {
+        itemsPerPage: 6,
+        currentPage: page
+      }" class="card">
         <a href="" [routerLink]="['/photo', photo.id]">
           <img [src]="photo.thumbnailUrl">
         </a>
         <p class="card-text">{{ photo.title }}</p>
       </div>
+
+      <ngb-pagination [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
 
       <div class="card full" *ngIf="!photos.length && !isLoading">
         <p class="card-text">

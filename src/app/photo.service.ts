@@ -16,7 +16,7 @@ export class PhotoService {
       .map(function (data) {
         return data.json();
       })
-      .delay(5000);
+      .delay(500);
   }
 
   getPhoto(id: number): Observable<Photo> {

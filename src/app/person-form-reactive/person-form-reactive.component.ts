@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { EmailValidation } from './person-form-email-matcher.class';
+import { PersonService } from '../person.service';
 
 @Component({
   selector: 'app-person-form-reactive',
@@ -11,7 +12,7 @@ export class PersonFormReactiveComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private personService: PersonService) {
     this.createForm();
   }
   
@@ -37,6 +38,11 @@ export class PersonFormReactiveComponent implements OnInit {
     }, {
       validator: EmailValidation.MatchEmail
     });
+  }
+
+  onSubmit() {
+    // se puede hacer mejor!
+    this.personService.savePerson(this.form.value);
   }
 
   ngOnInit() {

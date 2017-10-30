@@ -5,6 +5,7 @@ import { PhotoComponent } from './photo/photo.component';
 import { HomeComponent } from './home/home.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { PersonFormReactiveComponent } from './person-form-reactive/person-form-reactive.component';
+import { PersonListComponent } from './person-list/person-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'photo/:id', component: PhotoComponent },
   { path: 'person-form', component: PersonFormComponent },
   { path: 'person-form-reactive', component: PersonFormReactiveComponent },
+  { path: 'people', component: PersonListComponent },
   { path: '**', redirectTo: '' },
 ];
 

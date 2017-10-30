@@ -13,6 +13,9 @@ import { PersonFormComponent } from './person-form/person-form.component';
 import { PersonFormReactiveComponent } from './person-form-reactive/person-form-reactive.component';
 import { LoadingComponent } from './loading/loading.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PersonListComponent } from './person-list/person-list.component';
+import { PersonService } from './person.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     PersonFormComponent,
     PersonFormReactiveComponent,
-    LoadingComponent
+    LoadingComponent,
+    PersonListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +35,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [
-    PhotoService
+    PhotoService,
+    PersonService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,6 +10,8 @@ import { Photo } from '../photo';
 })
 export class PhotoListComponent implements OnInit {
 
+  page: number = 1;
+
   photos: Photo[] = [];
 
   isLoading: Boolean = true;
@@ -17,6 +19,7 @@ export class PhotoListComponent implements OnInit {
   constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
+    this.page = 1;
     this.getPhotos();
   }
 
